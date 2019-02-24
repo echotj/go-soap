@@ -15,59 +15,6 @@ import (
 // against "unused imports"
 var _ time.Time
 var _ xml.Name
-
-type FillPolicy struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ fillPolicy"`
-
-	Arg0 string `xml:"arg0,omitempty"`
-
-	Arg1 string `xml:"arg1,omitempty"`
-}
-
-type FillPolicyResponse struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ fillPolicyResponse"`
-
-	Return_ int32 `xml:"return,omitempty"`
-}
-
-type FillCommand struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ fillCommand"`
-
-	Arg0 string `xml:"arg0,omitempty"`
-
-	Arg1 string `xml:"arg1,omitempty"`
-}
-
-type FillCommandResponse struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ fillCommandResponse"`
-
-	Return_ int32 `xml:"return,omitempty"`
-}
-
-type QueryPolicy struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ queryPolicy"`
-
-	Arg0 string `xml:"arg0,omitempty"`
-}
-
-type QueryPolicyResponse struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ queryPolicyResponse"`
-
-	Return_ string `xml:"return,omitempty"`
-}
-
-type QueryConfig struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ queryConfig"`
-
-	Arg0 string `xml:"arg0,omitempty"`
-}
-
-type QueryConfigResponse struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ queryConfigResponse"`
-
-	Return_ string `xml:"return,omitempty"`
-}
-
 type FillConfig struct {
 	XMLName xml.Name `xml:"http://wssmcommlower/ fillConfig"`
 
@@ -75,23 +22,10 @@ type FillConfig struct {
 
 	Arg1 string `xml:"arg1,omitempty"`
 }
-
 type FillConfigResponse struct {
 	XMLName xml.Name `xml:"http://wssmcommlower/ fillConfigResponse"`
 
 	Return_ int32 `xml:"return,omitempty"`
-}
-
-type QueryView struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ queryView"`
-
-	Arg0 string `xml:"arg0,omitempty"`
-}
-
-type QueryViewResponse struct {
-	XMLName xml.Name `xml:"http://wssmcommlower/ queryViewResponse"`
-
-	Return_ string `xml:"return,omitempty"`
 }
 
 type WSSmCommLower struct {
@@ -129,58 +63,8 @@ func (service *WSSmCommLower) SetHeader(header interface{}) {
 	service.client.AddHeader(header)
 }
 
-func (service *WSSmCommLower) FillPolicy(request *FillPolicy) (*FillPolicyResponse, error) {
-	response := new(FillPolicyResponse)
-	err := service.client.Call("", request, response)
-	if err != nil {
-		return nil, err
-	}
-
-	return response, nil
-}
-
-func (service *WSSmCommLower) FillCommand(request *FillCommand) (*FillCommandResponse, error) {
-	response := new(FillCommandResponse)
-	err := service.client.Call("", request, response)
-	if err != nil {
-		return nil, err
-	}
-
-	return response, nil
-}
-
-func (service *WSSmCommLower) QueryPolicy(request *QueryPolicy) (*QueryPolicyResponse, error) {
-	response := new(QueryPolicyResponse)
-	err := service.client.Call("", request, response)
-	if err != nil {
-		return nil, err
-	}
-
-	return response, nil
-}
-
-func (service *WSSmCommLower) QueryConfig(request *QueryConfig) (*QueryConfigResponse, error) {
-	response := new(QueryConfigResponse)
-	err := service.client.Call("", request, response)
-	if err != nil {
-		return nil, err
-	}
-
-	return response, nil
-}
-
 func (service *WSSmCommLower) FillConfig(request *FillConfig) (*FillConfigResponse, error) {
 	response := new(FillConfigResponse)
-	err := service.client.Call("", request, response)
-	if err != nil {
-		return nil, err
-	}
-
-	return response, nil
-}
-
-func (service *WSSmCommLower) QueryView(request *QueryView) (*QueryViewResponse, error) {
-	response := new(QueryViewResponse)
 	err := service.client.Call("", request, response)
 	if err != nil {
 		return nil, err

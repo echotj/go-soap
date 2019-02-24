@@ -24,7 +24,7 @@ func ServerStart() {
 		e.Use(middleware.Logger())
 		e.Use(middleware.Recover())
 		e.HideBanner = true
-		e.POST("/WSSmCommLower/WSSmCommLower",soapServerHandler)
+		e.POST("/go-soap/sever",soapServerHandler)
 		e.Logger.Fatal(e.Start(":8001"))
 
 	}else{
